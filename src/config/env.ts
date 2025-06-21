@@ -6,7 +6,7 @@ dotenv.config();
 const envSchema = z.object({
   PORT: z.string().transform(Number).default("3333"),
   DATABASE_HOST: z.string().transform(String).default('localhost'),
-  DATABASE_PORT: z.string().transform(Number),
+  DATABASE_PORT: z.coerce.number().default(5432),
   DATABASE_USERNAME: z.string().transform(String),
   DATABASE_PASSWORD: z.string().transform(String),
   DATABASE_NAME: z.string().transform(String),
